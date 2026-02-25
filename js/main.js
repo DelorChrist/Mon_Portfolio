@@ -50,13 +50,53 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const form = document.querySelector('.contact-form');
-  form && form.addEventListener('submit', (e) => {
+  const popup = document.getElementById('msg-popup');
+  const popupClose = document.getElementById('popup-close');
+
+  function showPopup() {
+    popup.hidden = false;
+    // force reflow for transition
+    popup.offsetHeight;
+    popup.style.opacity = '1';
+    popupClose.focus();
+  }
+
+  function hidePopup() {
+    popup.style.opacity = '0';
+    setTimeout(() => { popup.hidden = true; }, 300);
+  }
+
+  popupClose && popupClose.addEventListener('click', hidePopup);
+  popup && popup.addEventListener('click', (e) => { if (e.target === popup) hidePopup(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !popup.hidden) hidePopup(); });
+
+  form && form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    // simple UX feedback
     const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Envoyé ✓';
+    btn.textContent = 'Envoi en cours...';
     btn.disabled = true;
-    setTimeout(() => { btn.textContent = 'Envoyer'; btn.disabled = false; }, 2500);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.reset();
+        showPopup();
+      } else {
+        btn.textContent = 'Erreur, réessayez';
+        setTimeout(() => { btn.textContent = 'Envoyer le message'; btn.disabled = false; }, 3000);
+      }
+    } catch {
+      btn.textContent = 'Erreur réseau';
+      setTimeout(() => { btn.textContent = 'Envoyer le message'; btn.disabled = false; }, 3000);
+    }
+
+    btn.textContent = 'Envoyer le message';
+    btn.disabled = false;
   });
 
   // General reveal-on-scroll for many elements using a single observer.

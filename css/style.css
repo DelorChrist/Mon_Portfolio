@@ -255,3 +255,14 @@ section h2::after{content:"";position:absolute;bottom:0;left:0;width:50px;height
 @media (prefers-reduced-motion: reduce){
   .animate, .project-card{transition:none !important;transform:none !important;opacity:1 !important}
 }
+
+/* ===== Message Popup ===== */
+.msg-popup{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);opacity:0;transition:opacity .3s ease}
+.msg-popup:not([hidden]){opacity:1}
+.msg-popup[hidden]{display:none}
+.msg-popup-box{background:var(--surface);border:1px solid rgba(0,119,255,0.2);border-radius:var(--radius);padding:2.5rem 2rem;text-align:center;max-width:380px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.5);transform:scale(0.95);transition:transform .3s ease}
+.msg-popup:not([hidden]) .msg-popup-box{transform:scale(1)}
+.msg-popup-icon{margin:0 auto 1.2rem;display:flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:50%;background:rgba(0,119,255,0.08)}
+.msg-popup-box h3{margin:0 0 .6rem;font-size:1.25rem;color:var(--text)}
+.msg-popup-box p{margin:0 0 1.5rem;color:var(--muted);font-size:.93rem;line-height:1.6}
+.msg-popup-box .btn{min-width:140px}

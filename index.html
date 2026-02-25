@@ -285,31 +285,39 @@
             </a>
           </div>
         </div>
-        <!-- Colonne droite: formulaire -->
-        <div class="contact-right">
-          <form class="contact-form" action="#" onsubmit="return false;">
-            <div class="form-row">
-              <label>
-                <span>Prénom</span>
-                <input type="text" name="prenom" placeholder="Jean" required>
-              </label>
-              <label>
-                <span>Nom</span>
-                <input type="text" name="nom" placeholder="Martin" required>
-              </label>
-            </div>
-            <label class="full">
-              <span>Email</span>
-              <input type="email" name="email" placeholder="jean.martin@email.com" required>
-            </label>
-            <label class="full">
-              <span>Message</span>
-              <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
-            </label>
-            <button type="submit" class="btn btn-primary btn-send">Envoyer le message</button>
-          </form>
-        </div>
-      </div>
+<!-- Colonne droite: formulaire -->
+<div class="contact-right">
+  <form 
+    class="contact-form"
+    action="https://formspree.io/f/mojnyoky"
+    method="POST"
+  >
+    <div class="form-row">
+      <label>
+        <span>Prénom</span>
+        <input type="text" name="prenom" placeholder="Jean" required>
+      </label>
+      <label>
+        <span>Nom</span>
+        <input type="text" name="nom" placeholder="Martin" required>
+      </label>
+    </div>
+
+    <label class="full">
+      <span>Email</span>
+      <input type="email" name="email" placeholder="mon-adressemail.com" required>
+    </label>
+
+    <label class="full">
+      <span>Message</span>
+      <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
+    </label>
+
+    <button type="submit" class="btn btn-primary btn-send">
+      Envoyer le message
+    </button>
+  </form>
+</div>
     </section>
   </main>
   <footer class="footer">
@@ -369,6 +377,21 @@
       </div>
     </div>
   </footer>
+
+  <!-- Popup confirmation envoi -->
+  <div id="msg-popup" class="msg-popup" role="dialog" aria-modal="true" aria-labelledby="popup-title" hidden>
+    <div class="msg-popup-box">
+      <div class="msg-popup-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="11" stroke="#0077FF" stroke-width="1.5"/>
+          <path d="M7 12.5l3.5 3.5 6.5-7" stroke="#0077FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3 id="popup-title">Message envoyé !</h3>
+      <p>Merci pour votre message. Je vous répondrai dans les plus brefs délais.</p>
+      <button class="btn btn-primary" id="popup-close">Fermer</button>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
