@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
@@ -11,9 +11,18 @@
   <meta name="description" content="Portfolio de Delor Christ — développeur web et mobile.">
 </head>
 <body>
+  <!-- Splash Screen -->
+  <div id="splash" class="splash">
+    <div class="splash-content">
+      <div class="splash-logo">DC</div>
+      <p class="splash-text">Veuillez patienter un instant<span class="splash-dots"></span></p>
+      <div class="splash-bar"><div class="splash-bar-fill"></div></div>
+    </div>
+  </div>
+
   <header class="nav">
     <div class="container nav-inner">
-      <a class="logo" href="#">Delor Christ</a>
+      <a class="logo" href="#"><span class="logo-initials">DC</span> Delor Christ</a>
       <nav class="menu" aria-label="Menu principal">
         <a href="#home">Accueil</a>
         <a href="#about">À propos</a>
@@ -38,73 +47,99 @@
           </div>
         </div>
         <div class="hero-image">
-          <img src="assets/image1.jpg" alt="Photo de Delor Christ">
+          <img src="assets/photo1.png" alt="Photo de Delor Christ">
         </div>
       </div>
     </section>
 
     <section id="about" class="about container">
-      <h2>À propos de moi</h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p class="lead">Je suis étudiant en Master 1 Big Data, Intelligence Artificielle et Réalité Augmentée (BIHAR) à l’ESATIC. 
-            Passionné par le développement web et mobile, ainsi que par l’intelligence 
-            artificielle et les technologies immersives, je m’intéresse à tout ce qui relie 
-            innovation, data et expérience utilisateur. <br><br>
-
-            Mon parcours m’a permis d’acquérir une solide base en programmation, modélisation 
-            de données et conception d’applications intelligentes. Je cherche continuellement 
-            à allier créativité et performance technique dans mes projets, en explorant les 
-            outils et approches les plus récents du domaine numérique. <br><br>
-
-            Mon objectif professionnel est de devenir ingénieur en intelligence artificielle ou développeur d’applications intelligentes, capable de concevoir des solutions innovantes basées sur la donnée, l’IA et la réalité augmentée, au service de la transformation digitale des entreprises. </p>
+      <div class="about-layout">
+        <!-- Colonne gauche: Titre + Texte -->
+        <div class="about-left">
+          <h2>À propos de moi</h2>
+          <p class="lead">Formé en Développement d'Applications et Systèmes d'Information (DASI), puis spécialisé en Big Data, Intelligence Artificielle et Réalité Augmentée (BIHAR) à l'ESATIC, je conçois des solutions numériques alliant performance technique, exploitation intelligente des données et expérience utilisateur.</p>
+          <p class="lead">Mon parcours m'a permis de développer une expertise en programmation, modélisation de données, conception de systèmes d'information et développement d'applications web et mobiles intégrant l'IA.</p>
+          <p class="lead">Animé par l'innovation technologique, je m'intéresse aux projets qui combinent data, intelligence artificielle et technologies immersives pour accompagner la transformation digitale des organisations.</p>
 
           <div class="contact-icons">
             <a href="#" aria-label="LinkedIn" class="icon-link">
-              <!-- LinkedIn SVG -->
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5C4.98 4.6 4.12 5.5 3 5.5C1.88 5.5 1 4.6 1 3.5C1 2.4 1.88 1.5 3 1.5C4.12 1.5 4.98 2.4 4.98 3.5ZM1.5 8.98H4.5V22.5H1.5V8.98ZM8.5 8.98H11.3V10.6H11.4C11.8 9.7 13 8.7 14.9 8.7C19 8.7 19.5 11.5 19.5 15.4V22.5H16.5V16C16.5 14.4 16.5 12.4 14 12.4C11.5 12.4 11 14.1 11 16V22.5H8.5V8.98Z" fill="currentColor"/></svg>
             </a>
             <a href="mailto:you@example.com" aria-label="Email" class="icon-link">
-              <!-- Mail SVG -->
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5V17.5C2 18.33 2.67 19 3.5 19H20.5C21.33 19 22 18.33 22 17.5V6.5L12 12.5L2 6.5Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
-            <a href="tel:+22500000000" aria-label="Téléphone" class="icon-link">
-              <!-- Phone SVG -->
+            <a href="tel:+2250501589009" aria-label="Téléphone" class="icon-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.9C20.8 16.4 19.5 16 18.2 15.7C17.8 15.6 17.4 15.7 17.1 16C16.2 16.9 15 17.4 13.8 17.4C9.8 17.4 6.4 14 6.4 10C6.4 8.8 6.9 7.6 7.8 6.7C8.1 6.4 8.2 6 8.1 5.6C7.8 4.3 7.4 3 6.9 1.8C6.8 1.4 6.4 1.1 6 1.2C4.5 1.5 3.1 2.1 1.9 3.2C1 4.1 1.1 5.2 1.9 6.5C3 8.9 5.6 12 8.9 15.3C12.2 18.7 15.4 21.3 17.8 22.4C19.1 23.2 20.2 23.1 21.1 22.2C22.2 21 22.8 19.6 23.1 18.1C23.2 17.7 22.9 17.3 22.5 17.2C21.3 16.8 20.1 16.5 18.9 16.2C18.6 16.1 18.3 16.4 18.2 16.7C18 17 17.4 17.6 16.9 18.1C16.6 18.4 16.6 18.8 16.8 19.1C17.8 21.2 19.9 22.2 21.4 22.5C22 22.6 22.4 22.2 22.5 21.7C22.9 19.9 22.5 18.3 22 16.9Z" fill="currentColor"/></svg>
             </a>
-            <a href="#" aria-label="GitHub" class="icon-link">
-              <!-- GitHub SVG -->
+            <a href="https://github.com/DelorChrist" aria-label="GitHub" class="icon-link">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C7.6 2 4 5.6 4 10C4 13.6 6.4 16.5 9.3 17.6C9.8 17.7 10 17.4 10 17.1C10 16.8 10 15.9 10 14.9C7 15.5 6.2 13.6 6.2 13.6C5.7 12.3 4.9 12 4.9 12C3.8 11.3 5 11.3 5 11.3C6.3 11.4 7 12.7 7 12.7C8.2 14.7 10 14.1 10.6 13.8C10.7 13 11 12.5 11.4 12.2C8.7 11.9 5.9 10.9 5.9 7.9C5.9 6.9 6.3 6.1 6.9 5.4C6.8 5.1 6.4 4.2 7 3C7 3 8 2.7 10 4C11 3.7 12 3.5 13 3.5C14 3.5 15 3.7 16 4C18 2.7 19 3 19 3C19.6 4.2 19.2 5.1 19.1 5.4C19.7 6.1 20.1 6.9 20.1 7.9C20.1 10.9 17.3 11.9 14.6 12.2C15.1 12.6 15.6 13.4 15.6 14.6C15.6 16.4 15.6 17.7 15.6 17.9C15.6 18.2 15.8 18.5 16.3 18.3C19.1 17.1 21.5 14.5 21.5 10C21.5 5.6 17.9 2 13.5 2H12Z" fill="currentColor"/></svg>
             </a>
           </div>
         </div>
 
-        <div class="about-stats">
-          <div class="stats">
-            <div class="stat">
-              <h3>10+</h3>
-              <p>Projets réalisés</p>
-            </div>
-            <div class="stat">
-              <h3>3 ans</h3>
-              <p>D'expérience</p>
-            </div>
-            <div class="stat">
-              <h3>100%</h3>
-              <p>Satisfaction client</p>
-            </div>
+        <!-- Colonne droite: Stats -->
+        <div class="about-right">
+          <div class="stat-card">
+            <div class="stat-number">+5</div>
+            <div class="stat-label">Projets réalisés</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">1 an</div>
+            <div class="stat-label">D'expérience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">M1</div>
+            <div class="stat-label">BIHAR — ESATIC</div>
           </div>
         </div>
       </div>
     </section>
-
     <section id="skills" class="skills container">
       <h2>Mes Compétences</h2>
       <div class="skill-grid">
-        <div class="skill-card"><h4>Front-end</h4><div class="badges"><span class="badge">Angular</span><span class="badge">SCSS</span><span class="badge">HTML</span></div></div>
-        <div class="skill-card"><h4>Back-end</h4><div class="badges"><span class="badge">Firebase</span><span class="badge">Node.js</span><span class="badge">REST</span></div></div>
-        <div class="skill-card"><h4>Mobile</h4><div class="badges"><span class="badge">Flutter</span><span class="badge">Dart</span></div></div>
-        <div class="skill-card"><h4>Outils</h4><div class="badges"><span class="badge">GitHub</span><span class="badge">Figma</span><span class="badge">CI/CD</span></div></div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3h18v18H3V3zm2 2v14h14V5H5zm2 2h4v4H7V7zm6 0h4v2h-4V7zm0 4h4v2h-4v-2zm-6 4h10v2H7v-2z" fill="currentColor"/></svg>
+          </div>
+          <h4>Front-end</h4>
+          <div class="badges">
+            <span class="badge">Angular</span>
+            <span class="badge">CSS</span>
+            <span class="badge">HTML</span>
+            <span class="badge">JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1zM5 19V5h14v14H5zm4-6l-2 2 2 2m6-4l2 2-2 2m-4-6l-2 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>Back-end</h4>
+          <div class="badges">
+            <span class="badge">Firebase</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">MySQL</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 2h10a2 2 0 012 2v16a2 2 0 01-2 2H7a2 2 0 01-2-2V4a2 2 0 012-2zm0 2v16h10V4H7zm3 14h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>Mobile</h4>
+          <div class="badges">
+            <span class="badge">Flutter</span>
+            <span class="badge">Dart</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6-1.6 1.6a1 1 0 101.4 1.4l2.3-2.3a1 1 0 000-1.4l-2.3-2.3a1 1 0 00-1.4 0zM9.3 6.3a1 1 0 00-1.4 0L5.6 8.6a1 1 0 000 1.4l2.3 2.3a1 1 0 001.4-1.4L7.7 9.3l1.6-1.6a1 1 0 000-1.4zM21 13v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7m0-6a2 2 0 012-2h14a2 2 0 012 2v3H3V5z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>Outils</h4>
+          <div class="badges">
+            <span class="badge">GitHub</span>
+            <span class="badge">Figma</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -115,48 +150,84 @@
 
         <div class="timeline-item">
           <article class="project-card">
-            <img src="assets/project-1.jpg" alt="Project 1">
+            <img src="assets/saty-boutik.png" alt="Project 1">
             <div class="project-info">
               <h3>Application e-commerce</h3>
-              <p>Plateforme moderne pour vente en ligne, paiement intégré et tableau d'administration.</p>
-              <p class="tech">PHP • TAILWIND/CSS • JAVASCRIPT</p>
-              <div class="project-links"><a href="#">Démo</a><a href="#">GitHub</a></div>
+              <p>Plateforme moderne pour vente en ligne avec tableau d'administration.</p>
+              <p class="tech">Angular • Node Js • MySQL</p>
+              <div class="project-links"><a href="https://delorchrist.github.io/saty-boutique/">Démo</a><a href="https://github.com/DelorChrist">GitHub</a></div>
             </div>
           </article>
         </div>
 
         <div class="timeline-item">
           <article class="project-card">
-            <img src="assets/project-2.jpg" alt="Project 2">
+            <img src="assets/saty-boutik-mobile.png" alt="Project 2">
             <div class="project-info">
               <h3>Application e-commerce</h3>
               <p>Plateforme moderne pour vente en ligne, paiement intégré et tableau d'administration.</p>
               <p class="tech">Flutter</p>
-              <div class="project-links"><a href="#">Démo</a><a href="#">GitHub</a></div>
+              <div class="project-links"><a href="#">Démo</a><a href="https://github.com/DelorChrist">GitHub</a></div>
             </div>
           </article>
         </div>
 
         <div class="timeline-item">
           <article class="project-card">
-            <img src="assets/project-3.jpg" alt="Project 3">
+            <img src="assets/oiseau.png" alt="Project 3">
             <div class="project-info">
               <h3>jeu d'oiseau</h3>
               <p>Jeu interactif d'oiseau qui vole avec bouton directionnel</p>
               <p class="tech">HTML • CSS • JS</p>
-              <div class="project-links"><a href="#">Démo</a><a href="#">GitHub</a></div>
+              <div class="project-links"><a href="#">Démo</a><a href="https://github.com/DelorChrist">GitHub</a></div>
             </div>
           </article>
         </div>
 
         <div class="timeline-item">
           <article class="project-card">
-            <img src="assets/project-4.jpg" alt="Project 4">
+            <img src="assets/gare.jpg" alt="Project 4">
             <div class="project-info">
               <h3>Reservation de ticket</h3>
-              <p>Mise en place d'un site eb pour en entreprise de transport Ivoirienne</p>
+              <p>Mise en place d'un site  pour en entreprise de transport Ivoirienne</p>
               <p class="tech">HTML • CSS • JS</p>
-              <div class="project-links"><a href="#">Démo</a><a href="#">GitHub</a></div>
+              <div class="project-links"><a href="#">Démo</a><a href="https://github.com/DelorChrist">GitHub</a></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="timeline-item">
+          <article class="project-card">
+            <img src="assets/residence.png" alt="Project 5">
+            <div class="project-info">
+              <h3>Site de location de résidence</h3>
+              <p>Réalisation d'un site de location de résidence permettant aux utilisateurs de rechercher, consulter et réserver des logements en ligne.</p>
+              <p class="tech">Angular</p>
+              <div class="project-links"><a href="#">Démo</a><a href="https://github.com/DelorChrist">GitHub</a></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="timeline-item">
+          <article class="project-card">
+            <img src="assets/epargne.png" alt="Project 6">
+            <div class="project-info">
+              <h3>Application d'épargne étudiant</h3>
+              <p>Réalisation d'une application web d'épargne destinée aux jeunes étudiants, avec gestion de comptes, suivi des économies et tableaux de bord.</p>
+              <p class="tech">HTML • CSS • JS • Node.js • MySQL</p>
+              <div class="project-links"><a href="#">Démo</a><a href="https://github.com/DelorChrist">GitHub</a></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="timeline-item">
+          <article class="project-card">
+            <img src="assets/parlonsivoire.png" alt="Project 7">
+            <div class="project-info">
+              <h3>ParlonsIvoire</h3>
+              <p>Application d'apprentissage des langues ivoiriennes et de leurs cultures. Découvrez et apprenez les langues locales de Côte d'Ivoire de manière interactive avec l'IA.</p>
+              <p class="tech">Flutter • Dart • Firebase</p>
+              <div class="project-links"><a href="#">Démo</a><a href="https://github.com/DelorChrist">GitHub</a></div>
             </div>
           </article>
         </div>
@@ -165,27 +236,137 @@
     </section>
 
     <section id="contact" class="contact container">
-      <h2>Contact</h2>
-      <form class="contact-form" action="#" onsubmit="return false;">
-        <label><span>Nom</span><input type="text" name="name" required></label>
-        <label><span>Email</span><input type="email" name="email" required></label>
-        <label class="full"><span>Message</span><textarea name="message" rows="5" required></textarea></label>
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Envoyer</button>
+      <div class="contact-header">
+        <span class="contact-badge">Parlons ensemble</span>
+        <h2>Me contacter</h2>
+      </div>
+      <div class="contact-layout">
+        <!-- Colonne gauche: infos -->
+        <div class="contact-left">
+          <p class="contact-desc">Vous avez un projet en tête ou vous souhaitez simplement discuter ? N'hésitez pas à me contacter. Je suis toujours ouvert à de nouvelles opportunités et collaborations !</p>
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <span class="contact-info-icon email-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+              </span>
+              <div>
+                <span class="contact-info-label">Email</span>
+                <span class="contact-info-value">delorchrist@email.com</span>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-info-icon location-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div>
+                <span class="contact-info-label">Localisation</span>
+                <span class="contact-info-value">Abidjan, Côte d'Ivoire</span>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <span class="contact-info-icon dispo-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z"/></svg>
+              </span>
+              <div>
+                <span class="contact-info-label">Disponibilité</span>
+                <span class="contact-info-value">Ouvert aux opportunités</span>
+              </div>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://github.com/DelorChrist" aria-label="GitHub" class="contact-social-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="contact-social-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" aria-label="X / Twitter" class="contact-social-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
         </div>
-      </form>
-      <div class="socials">
-        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-        <a href="#" aria-label="GitHub">GitHub</a>
-        <a href="#" aria-label="Instagram">Instagram</a>
+        <!-- Colonne droite: formulaire -->
+        <div class="contact-right">
+          <form class="contact-form" action="#" onsubmit="return false;">
+            <div class="form-row">
+              <label>
+                <span>Prénom</span>
+                <input type="text" name="prenom" placeholder="Jean" required>
+              </label>
+              <label>
+                <span>Nom</span>
+                <input type="text" name="nom" placeholder="Martin" required>
+              </label>
+            </div>
+            <label class="full">
+              <span>Email</span>
+              <input type="email" name="email" placeholder="jean.martin@email.com" required>
+            </label>
+            <label class="full">
+              <span>Message</span>
+              <textarea name="message" rows="5" placeholder="Votre message..." required></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary btn-send">Envoyer le message</button>
+          </form>
+        </div>
       </div>
     </section>
   </main>
-
   <footer class="footer">
-    <div class="container footer-inner">
-      <p>© 2025 Delor Christ — Tous droits réservés.</p>
-      <div class="socials"><a href="#">LinkedIn</a><a href="#">GitHub</a><a href="#">Instagram</a></div>
+    <div class="container">
+      <!-- Top: brand + nav + contact -->
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="logo" href="#"><span class="logo-initials">DC</span> Delor Christ</a>
+          <p class="footer-desc">Développeur Web & Mobile passionné par l'IA et les technologies immersives. Basé à Abidjan, Côte d'Ivoire.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-nav">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="#home">Accueil</a></li>
+              <li><a href="#about">À propos</a></li>
+              <li><a href="#skills">Compétences</a></li>
+              <li><a href="#projects">Projets</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h4>Contact</h4>
+            <ul>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+                <a href="mailto:delorchrist@email.com">delorchrist@email.com</a>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <a href="tel:+2250501589009">+225 05 01 58 90 09</a>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Abidjan, Côte d'Ivoire</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Divider -->
+      <div class="footer-divider"></div>
+      <!-- Bottom: copyright + socials -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Delor Christ. Tous droits réservés.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/DelorChrist" aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" aria-label="X / Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 

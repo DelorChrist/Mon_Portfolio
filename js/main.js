@@ -1,4 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Splash screen
+  const splash = document.getElementById('splash');
+  if (splash) {
+    setTimeout(() => {
+      splash.classList.add('hidden');
+      splash.addEventListener('transitionend', () => splash.remove());
+    }, 3000);
+  }
+
+  // Header hide on scroll down, show on scroll up
+  const nav = document.querySelector('.nav');
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  function updateNav() {
+    const currentScrollY = window.scrollY;
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      nav.classList.add('nav-hidden');
+    } else {
+      nav.classList.remove('nav-hidden');
+    }
+    lastScrollY = currentScrollY;
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateNav);
+      ticking = true;
+    }
+  });
+
   const toggle = document.querySelector('.nav-toggle');
   const menu = document.querySelector('.menu');
   toggle && toggle.addEventListener('click', () => {
@@ -29,8 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // General reveal-on-scroll for many elements using a single observer.
   // Elements to observe: sections, project cards, parcours items, skill cards, stats, hero elements, footer
-  const selectors = ['section', '.project-card', '.parcours-item', '.skill-card', '.stat', '.hero-text > *', '.hero-image', 'footer'];
+  const selectors = ['section', '.project-card', '.parcours-item', '.skill-card', '.stat-card', '.hero-text > *', '.hero-image', 'footer'];
   const elems = Array.from(document.querySelectorAll(selectors.join(',')));
+
+  // Add stagger delays to skill cards so they appear one after another
+  document.querySelectorAll('.skill-card').forEach((card, i) => {
+    card.dataset.delay = String(i * 150);
+  });
 
   // Add the utility animate class to elements that should animate if not already present
   elems.forEach(el => {
