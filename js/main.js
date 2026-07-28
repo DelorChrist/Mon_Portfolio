@@ -8,46 +8,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000);
   }
 
-  // Header hide on scroll down, show on scroll up
-  const nav = document.querySelector('.nav');
-  let lastScrollY = window.scrollY;
-  let ticking = false;
 
-  function updateNav() {
-    const currentScrollY = window.scrollY;
-    if (currentScrollY > lastScrollY && currentScrollY > 80) {
-      nav.classList.add('nav-hidden');
-    } else {
-      nav.classList.remove('nav-hidden');
-    }
-    lastScrollY = currentScrollY;
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(updateNav);
-      ticking = true;
-    }
-  });
 
   const toggle = document.querySelector('.nav-toggle');
   const menu = document.querySelector('.menu');
-  toggle && toggle.addEventListener('click', () => {
-    if (menu.style.display === 'flex') {
-      menu.style.display = 'none';
-    } else {
-      menu.style.display = 'flex';
-      menu.style.flexDirection = 'column';
-      menu.style.background = 'var(--bg)';
-      menu.style.position = 'absolute';
-      menu.style.right = '1rem';
-      menu.style.top = '64px';
-      menu.style.padding = '0.75rem';
-      menu.style.borderRadius = '8px';
-      menu.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
-    }
-  });
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('is-active');
+    });
+
+    // Close menu when clicking a link
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('is-active');
+      });
+    });
+
+    // Close menu on desktop resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) {
+        menu.classList.remove('is-active');
+      }
+    });
+  }
 
   const form = document.querySelector('.contact-form');
   const popup = document.getElementById('msg-popup');
@@ -86,6 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (response.ok) {
         form.reset();
         showPopup();
+        btn.textContent = 'Envoyer le message';
+        btn.disabled = false;
       } else {
         btn.textContent = 'Erreur, réessayez';
         setTimeout(() => { btn.textContent = 'Envoyer le message'; btn.disabled = false; }, 3000);
@@ -94,9 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.textContent = 'Erreur réseau';
       setTimeout(() => { btn.textContent = 'Envoyer le message'; btn.disabled = false; }, 3000);
     }
-
-    btn.textContent = 'Envoyer le message';
-    btn.disabled = false;
   });
 
   // General reveal-on-scroll for many elements using a single observer.
@@ -113,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
   elems.forEach(el => {
     if (!el.classList.contains('animate') && !el.classList.contains('no-animate')) {
       el.classList.add('animate');
+      el.classList.add('will-change');
     }
   });
 
@@ -123,6 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalDelay = dataDelay + (idx * baseStagger);
     target.style.setProperty('--anim-delay', totalDelay + 'ms');
     target.classList.add('revealed');
+    // Remove will-change after animation
+    setTimeout(() => { target.classList.remove('will-change'); }, totalDelay + 650);
   }
 
   if ('IntersectionObserver' in window && elems.length) {
