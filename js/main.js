@@ -30,6 +30,20 @@ document.addEventListener('DOMContentLoaded', () => {
         menu.classList.remove('is-active');
       }
     });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (menu.classList.contains('is-active') && !menu.contains(e.target) && !toggle.contains(e.target)) {
+        menu.classList.remove('is-active');
+      }
+    });
+
+    // Close menu on scroll
+    window.addEventListener('scroll', () => {
+      if (menu.classList.contains('is-active')) {
+        menu.classList.remove('is-active');
+      }
+    });
   }
 
   const form = document.querySelector('.contact-form');
